@@ -1,3 +1,5 @@
+@import '../partials/mixins';
+
 .hidden{
     display: none;
 }
@@ -59,25 +61,10 @@
     }
 
     &__submit {
-        background-color: #23B5D3;
-        font-family: "BN";
+        @include button;
+        background-color: #23B5D3;  
         color: black;
-        padding: 0.5rem;
-        border: none;
-        border-radius: 7px;
-        width: 48%;
-        font-size: 1.5rem;
-        transform: scale(1);
-        transition: 0.3s ease-in-out;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-
-        &:focus {
-            outline: none;
-        }
-
+       
         &:active {
             outline: none;
             background-color: darken(#23B5D3, 15%);
@@ -85,24 +72,9 @@
     }
 
     &__reset {
-        font-family: "BN";
-        padding: 0.5rem;
-        border-radius: 7px;
+        @include button;
         background-color: white;
         color: #23B5D3;
-        border: none;
-        width: 48%;
-        font-size: 1.5rem;
-        transform: scale(1);
-        transition: 0.3s ease-in-out;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-
-        &:focus {
-            outline: none;
-        }
 
         &:active {
             outline: none;
