@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Page.scss';
 import Sound from 'react-sound';
 import Sound1 from '../assets/audio/kids-cheering-sound-effect.mp3';
-import Sound2 from '../assets/audio/nononono-cat-mp3cut.mp3'
+import Sound2 from '../assets/audio/nononono-cat-mp3cut.mp3';
 
 class Form extends React.Component{
     state={
@@ -47,7 +47,8 @@ class Form extends React.Component{
     reset = e =>{
         this.setState({
             output:"",
-            answer:""
+            answer:"",
+            className:"hidden"
         })
     }
     
@@ -61,7 +62,6 @@ class Form extends React.Component{
                     <img className={this.state.className} height="100px" width="100px" src={this.state.output}></img>
                 <button type="submit">Get Answer!</button>
                 <Sound url={this.state.sound} playStatus={Sound.status.PLAYING} />
-                {/* <audio><source src='../assets/audio/kids-cheering-sound-effect.mp3'></source></audio> */}
                 <button onClick={this.reset} type="reset">Reset</button>
                 
             </form>
