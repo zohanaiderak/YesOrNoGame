@@ -6,7 +6,8 @@ class Form extends React.Component{
     state={
         output:"",
         answer:"",
-        className: "hidden"
+        className: "hidden",
+        question: "ASK ME"
     }
 
     handleSubmit = (e) =>{
@@ -18,29 +19,42 @@ class Form extends React.Component{
                 this.setState({
                     output : res.data.image,
                     answer : res.data.answer,
-                    className: "visible"
+                    className: "main__gif",
                 })
             })
             .catch(error=>{
                 window.alert(error)
             })
+        this.setState({
+            question: e.target.question.value
+        });
     }
 
     reset = e =>{
         this.setState({
             output:"",
-            answer:""
+            answer:"",
+            question: 'ASK ME'
         })
     }
     
     
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
-                <input type="text"></input>
-                    <img className={this.state.className} height="100px" width="100px" src={this.state.output}></img>
-                <button type="submit">Get Answer!</button>
-                <button onClick={this.reset} type="reset">Reset</button>
+            <form onSubmit={this.handleSubmit} className="main">
+                <div className="main__container">
+                    <div className="main__item">
+                        <h1 className="main__header">{this.state.question}</h1>
+                    </div>
+                    <div className="main__item">
+                        <img className={this.state.className} src={this.state.output}></img> 
+                        <input type="text" name="question" className="main__input" placeholder="ASK A YES OR NO QUESTION"></input>
+                    </div>
+                    <div className="main__buttons">
+                        <button className="main__submit" type="submit">GET ANSWER</button>
+                        <button className="main__reset" onClick={this.reset} type="reset">RESET</button>
+                    </div>
+                </div>
             </form>
 
         )
