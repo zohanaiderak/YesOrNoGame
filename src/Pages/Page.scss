@@ -1,3 +1,95 @@
+@import '../partials/mixins';
+
 .hidden{
     display: none;
+}
+
+.visible {
+    color: white;
+}
+
+.main {
+    background-color: #EA526F;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &__container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        padding: 5rem;
+        text-align: center;
+        background-color: #070600;
+        height: 90vh;
+        margin: 2rem;
+        justify-content: center;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px black;
+    }
+
+    &__header {
+        font-family: "Bangers";
+        font-size: 4rem;
+        color:  #FEFCFB;
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        padding: 0.75rem 1rem;
+        text-align: center;
+        width: 100%;
+        border-radius: 30px;
+        border: 3px solid black;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+
+        &:focus {
+            outline: none;
+            border: 3px solid #23B5D3;
+        }
+
+        &:hover {
+            border: 3px solid #23B5D3;
+        }
+    }
+
+    &__buttons {
+        margin: 1rem;
+    }
+
+    &__submit {
+        @include button;
+        background-color: #23B5D3;  
+        color: black;
+       
+        &:active {
+            outline: none;
+            background-color: darken(#23B5D3, 15%);
+        }
+    }
+
+    &__reset {
+        @include button;
+        background-color: white;
+        color: #23B5D3;
+
+        &:active {
+            outline: none;
+            background-color: darken(white, 15%);
+        }
+    }
+
+    &__gif {
+        border-radius: 5px;
+        margin-bottom: 2rem;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+    }
 }
