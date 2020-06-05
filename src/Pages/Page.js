@@ -49,7 +49,7 @@ class Form extends React.Component{
                 window.alert(error)
             })
         this.setState({
-            question: e.target.question.value
+            question: e.target.question.value+"?"
         });
     }
 
@@ -58,7 +58,8 @@ class Form extends React.Component{
             output:"",
             answer:"",
             question: 'ASK ME',
-            className:"hidden"
+            className:"hidden",
+            sound: ""
         })
     }
     
@@ -73,17 +74,17 @@ class Form extends React.Component{
                     </div>
                     <div className="main__item">
                         <img className={this.state.className} src={this.state.output}></img> 
-                        <input type="text" name="question" className="main__input" placeholder="ASK A YES OR NO QUESTION"></input>
+                        <input type="text" name="question" className="main__input" placeholder="ASK A YES OR NO QUESTION" required></input>
                     </div>
-                    <div className={this.state.classJob}>
+                    {/* <div className={this.state.classJob}>
                         <h1>Enough Play</h1>
                         <h2>Go Finish your Collab Work</h2>
-                    </div>
-                    <div className={this.state.classCandy}>
+                    </div> */}
+                    {/* <div className={this.state.classCandy}>
                         <h1>Not Your Day?</h1>
                         <h2>Have a Candy!!!</h2>
                         <img src={imageCandy}></img>
-                    </div>
+                    </div> */}
                     <div className="main__buttons">
                         <Sound url={this.state.sound} playStatus={Sound.status.PLAYING} />
                         <button className="main__submit" type="submit">GET ANSWER</button>
